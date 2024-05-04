@@ -24,21 +24,26 @@ Before you begin, ensure you have the following installed:
 - MySQL 5.7 or later.
 
 ## Project Structure
+
+Below is a breakdown of the key directories and files within the project:
+
+```plaintext
 src/
 │
 ├── main/
-│ ├── java/
-│ │ ├── config/
-│ │ ├── controller/
-│ │ ├── model/
-│ │ ├── repository/
-│ │ └── service/
-│ ├── resources/
-│ │ └── application.properties
-│ └── webapp/
-│ ├── WEB-INF/
-│ └── static/
-└── pom.xml
+│   ├── java/
+│   │   ├── config/         # Configuration files for Spring and database
+│   │   ├── controller/     # Controllers to handle request mapping
+│   │   ├── model/          # Entity models for Hibernate
+│   │   ├── repository/     # Repository interfaces for database access
+│   │   └── service/        # Services for business logic
+│   ├── resources/
+│   │   └── application.properties  # Configuration settings
+│   └── webapp/
+│       ├── WEB-INF/
+│       └── static/         # Static resources like CSS and JavaScript
+└── pom.xml                # Maven project file
+
 
 
 ## Setup and Installation
