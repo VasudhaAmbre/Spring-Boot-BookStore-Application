@@ -1,7 +1,9 @@
+-- Create schema for Online Book Store
 CREATE DATABASE OBS;
 
 USE OBS;
 
+-- Create table for users
 CREATE TABLE users (
   id BIGINT(20) NOT NULL AUTO_INCREMENT,
   username VARCHAR(50) NOT NULL,
@@ -16,11 +18,13 @@ CREATE TABLE users (
   UNIQUE INDEX email_UNIQUE (email ASC)
 );
 
+-- Create table for categories
 CREATE TABLE book_categories (
     id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL
 );
 
+-- Create table for books
 CREATE TABLE books (
     book_id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
@@ -39,6 +43,7 @@ CREATE TABLE carts (
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
+-- Create table for carts
 CREATE TABLE cart_books (
     cart_book_id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     cart_id BIGINT NOT NULL,
@@ -47,6 +52,7 @@ CREATE TABLE cart_books (
     FOREIGN KEY (cart_id) REFERENCES carts(cart_id),
     FOREIGN KEY (book_id) REFERENCES books(book_id)
 );
+
 CREATE TABLE orders (
   order_id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   user_id BIGINT NOT NULL,
@@ -55,14 +61,3 @@ CREATE TABLE orders (
   status VARCHAR(50) NOT NULL,
   FOREIGN KEY (user_id) REFERENCES users(id)
 );
-
-CREATE TABLE orders (
-    orderId BIGINT NOT NULL AUTO_INCREMENT,
-    user_id BIGINT NOT NULL,
-    order_date DATETIME NOT NULL,
-    total_price DECIMAL(10, 2) NOT NULL,
-    status VARCHAR(50) NOT NULL,
-    PRIMARY KEY (orderId),
-    FOREIGN KEY (user_id) REFERENCES users(id)
-);
-
